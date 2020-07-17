@@ -19,6 +19,9 @@ df2012 <- subset(d, d$Year == "2012")
 df2010 <- subset(d, d$Year == "2010")
 
 #Model 1
+#As guns per capita increases, the number of homicides per capita decreases. 
+#As police per capita increases, the number of homicides per capita increases. 
+
 m1_2010 <- lm(HomicidesPerCap ~ GunsPerCap + PolicePerCap , data = df2010)
 m1_2012 <- lm(HomicidesPerCap ~ GunsPerCap + PolicePerCap , data = df2012)
 m1_2017 <- lm(HomicidesPerCap ~ GunsPerCap + PolicePerCap , data = df2017)
@@ -45,6 +48,12 @@ plot(m1_2012$res ~ m1_2012$fit)
 plot(m1_2017$res ~ m1_2017$fit)
 
 #Model 2
+#As guns per capita increases, the number of homicides per capita decreases
+#As police per capita increases, the number of homicides per capita increases. 
+#As drug users per capita increases, the number of homicides per capita increases slightly. 
+#GDP per capita has no effect on homicides per capita
+#As alcohol abusers per capita increases, the number of homicides per capita decreases. 
+
 m2_2010 <- lm(HomicidesPerCap ~ GunsPerCap + PolicePerCap + DrugUsersPerCap  + RealGDPperCapita +
                 AlcoholAbuserPerCap , data = df2010 )
 m2_2012 <- lm(HomicidesPerCap ~ GunsPerCap + PolicePerCap + DrugUsersPerCap  + RealGDPperCapita +
@@ -73,6 +82,14 @@ plot(m2_2012$res ~ m2_2012$fit)
 plot(m2_2017$res ~ m2_2017$fit)
 
 #Model 3
+#As guns per capita increases, the number of homicides per capita decreases. 
+#As police per capita increases, the number of homicides per capita decreases. 
+#As drug users per capita increases, the number of homicides per capita increases slightly. 
+#GDP per capita has no effect on homicides per capita
+#As alcohol abusers per capita increases, the number of homicides per capita decreases. 
+#Effect of police per capita on homicides per capita is different for higher levels of alcohol abusers per capita.
+
+
 m3_2010 <- lm(HomicidesPerCap ~ GunsPerCap + PolicePerCap + DrugUsersPerCap  + RealGDPperCapita +
                 AlcoholAbuserPerCap*PolicePerCap , data = df2010 )
 m3_2012 <- lm(HomicidesPerCap ~ GunsPerCap + PolicePerCap + DrugUsersPerCap  + RealGDPperCapita +
