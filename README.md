@@ -1,2 +1,2 @@
-# Code
-Complilation of R programming codes
+# Factors influencing Homicides in the U.S.
+Complilation of R programming models
