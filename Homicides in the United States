@@ -1,8 +1,0 @@
-#Library declaration
-
-library(purrr)
-library(tidyr)
-library(ggplot2)
-library(corrplot)
-library(stargazer)
-library("car")
